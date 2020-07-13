@@ -20,14 +20,10 @@ router.post('/generate', auth, async (req, res) => {
 
         const to = baseUrl + '/t/' + code
 
-        console.log('userID ', req.user.userId)
-
 
         const link = new Link({
             code, to, from, owner: req.user.userId
         }) 
-
-        console.log('link ', link)
 
 
         await link.save()
